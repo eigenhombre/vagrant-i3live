@@ -22,6 +22,8 @@ package { 'gcc': ensure => installed }
 
 package { 'gcc-c++': ensure => installed }
 
+package { 'nodejs': ensure => installed }
+
 package { 'git': ensure => installed }
 
 package { 'subversion': ensure => installed } 

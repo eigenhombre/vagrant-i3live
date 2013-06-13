@@ -1,4 +1,4 @@
-vagrant-sci-linux-6-base
+vagrant-sci-linux-6
 ========================
 
 Scientific Linux 6 VM with various developer dependencies:
@@ -8,8 +8,9 @@ Scientific Linux 6 VM with various developer dependencies:
 * Python 2.6
 * Virtualenv
 * Java (JVM + compiler)
-* Leiningen
+* Leiningen (Clojure)
 * ZeroMQ (libs + dev package)
+* Node.js
 * Git
 * Subversion
 * MySQL
@@ -20,7 +21,7 @@ These are the things I need for various projects; you may wish to edit
 
 To use:
 
-1. `git clone` this repository and `cd` into the resulting directory.
+1. `git clone` or otherwise checkout this repository and `cd` into the resulting directory.
 1. install [Virtualbox](https://www.virtualbox.org/).
 1. install [Vagrant](http://vagrantup.com/).
 1. `vagrant up`  **NOTE:** This will take awhile the first time you run it.
