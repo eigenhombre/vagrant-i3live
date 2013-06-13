@@ -6,17 +6,24 @@ Scientific Linux 6 VM with various developer dependencies:
 * Ruby
 * Puppet
 * Python 2.6
+* Virtualenv
 * Java (JVM + compiler)
 * Leiningen
+* ZeroMQ (libs + dev package)
+* Git
+* Subversion
+* MySQL
+* Postgres (installed but not started)
 
-These are the things I need for various projects; you may wish to edit `Vagrantfile` and/or `manifests/scientificlinux-60.pp` to suit.
+These are the things I need for various projects; you may wish to edit
+`Vagrantfile` and/or `manifests/scientificlinux-60.pp` to suit.
 
 To use:
 
 1. `git clone` this repository and `cd` into the resulting directory.
 1. install [Virtualbox](https://www.virtualbox.org/).
 1. install [Vagrant](http://vagrantup.com/).
-1. `vagrant up`  # This will take awhile the first time you run it
+1. `vagrant up`  **NOTE:** This will take awhile the first time you run it.
 
 To login:
 

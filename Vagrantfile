@@ -37,7 +37,9 @@ Vagrant::Config.run do |config|
   # config.vm.share_folder "v-data", "/vagrant_data", "../data"
 
   # Enable shell provisioner to install puppet
-  config.vm.provision :shell, :path => "install-puppet.sh"
+  config.vm.provision :shell, :path => "bash/install-puppet.sh"
+  config.vm.provision :shell, :path => "bash/install-lein.sh"
+  config.vm.provision :shell, :path => "bash/install-epel.sh"
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
