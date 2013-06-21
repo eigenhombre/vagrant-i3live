@@ -65,3 +65,12 @@ exec { "leiningen/install-script":
   creates => ["/home/$user/bin/lein",
               "/home/$user/.lein"],
 }
+
+# Virtualenv for python
+
+exec { "python/virtualenv":
+  command => "/usr/bin/virtualenv /home/$user/venv",
+  creates => ["/home/$user/venv"],
+  user => $user,
+}
+
