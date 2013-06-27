@@ -26,6 +26,8 @@ package { 'nodejs': ensure => installed }
 
 package { 'git': ensure => installed }
 
+package { 'diffutils': ensure => installed }
+
 package { 'subversion': ensure => installed } 
 
 package { 'mysql': ensure => installed }
