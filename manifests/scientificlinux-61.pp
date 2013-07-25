@@ -71,6 +71,7 @@ exec { "leiningen/install-script":
 # Virtualenv for python
 
 exec { "python/virtualenv":
+  require => Package["python-virtualenv"],
   command => "/usr/bin/virtualenv /home/$user/venv",
   creates => ["/home/$user/venv"],
   user => $user,

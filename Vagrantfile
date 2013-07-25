@@ -7,7 +7,8 @@ Vagrant::Config.run do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "scientificlinux-60"
+  config.vm.box = "scientificlinux-61"
+  config.vm.forward_port 3000, 3000
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -40,7 +41,7 @@ Vagrant::Config.run do |config|
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
   # You will need to create the manifests directory and a manifest in
-  # the file scientificlinux-60.pp in the manifests_path directory.
+  # the file scientificlinux-61.pp in the manifests_path directory.
   #
   # An example Puppet manifest to provision the message of the day:
   #
@@ -57,7 +58,7 @@ Vagrant::Config.run do |config|
   #
   config.vm.provision :puppet do |puppet|
      puppet.manifests_path = "manifests"
-     puppet.manifest_file  = "scientificlinux-60.pp"
+     puppet.manifest_file  = "scientificlinux-61.pp"
      puppet.options        = "--verbose --debug"
   end
 
@@ -98,8 +99,5 @@ Vagrant::Config.run do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
-
-  config.vm.forward_port 3000, 3000
-  config.vm.box = "scientificlinux-60"
 
 end
