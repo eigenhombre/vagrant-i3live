@@ -22,13 +22,9 @@ package { 'gcc': ensure => installed }
 
 package { 'gcc-c++': ensure => installed }
 
-package { 'nodejs': ensure => installed }
-
 package { 'git': ensure => installed }
 
 package { 'diffutils': ensure => installed }
-
-package { 'subversion': ensure => installed } 
 
 package { 'mysql': ensure => installed }
 
@@ -39,10 +35,6 @@ service { 'mysqld':
 }
 
 package { 'mysql-server': ensure => installed }
-
-package { 'postgresql': ensure => installed }
-
-package { 'postgresql-server': ensure => installed }
 
 # Leiningen / Clojure
 
