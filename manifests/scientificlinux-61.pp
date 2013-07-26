@@ -2,11 +2,7 @@ group { "puppet": ensure => "present", }
 
 File { owner => 0, group => 0, mode => 0644 }
 
-file { '/etc/motd': content => "Vagrant SL6.0 dev box\n" }
-
-package { 'java-1.7.0-openjdk': ensure => installed }
-
-package { 'java-1.7.0-openjdk-devel': ensure => installed }
+file { '/etc/motd': content => "Vagrant SL6.1 dev box for IceCube Live\n" }
 
 package { 'wget': ensure => installed }
 
@@ -35,30 +31,6 @@ service { 'mysqld':
 }
 
 package { 'mysql-server': ensure => installed }
-
-# Leiningen / Clojure
-
-$user = 'vagrant'
-
-file { "leiningen/create-local-bin-folder":
-  ensure => directory,
-  path => "/home/$user/bin",
-  owner => $user,
-  group => $user,
-  mode => '755',
-}
-
-$lein_url = "https://github.com/technomancy/leiningen/raw/stable/bin/lein"
-
-exec { "leiningen/install-script":
-  user => $user,
-  group => $user,
-  path => ["/bin", "/usr/bin", "/usr/local/bin"],
-  cwd => "/home/$user/bin",
-  command => "wget ${lein_url} && chmod 755 lein",
-  creates => ["/home/$user/bin/lein",
-              "/home/$user/.lein"],
-}
 
 # Virtualenv for python
 

@@ -3,12 +3,9 @@ vagrant-i3live
 
 Scientific Linux 6 VM for IceCube Live
 
-* Ruby
 * Puppet
 * Python 2.6
 * Virtualenv
-* Java (JVM + compiler)
-* Leiningen (Clojure)
 * ZeroMQ (libs + dev package)
 * Git
 * MySQL
