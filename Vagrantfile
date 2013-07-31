@@ -12,7 +12,7 @@ Vagrant::Config.run do |config|
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  # config.vm.box_url = "http://domain.com/path/to/above.box"
+  config.vm.box_url = "http://vagrant.phys.uvic.ca/scientificlinux-61.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
@@ -36,6 +36,7 @@ Vagrant::Config.run do |config|
   # Enable shell provisioner to install puppet
   config.vm.provision :shell, :path => "bash/install-puppet.sh"
   config.vm.provision :shell, :path => "bash/install-epel.sh"
+  config.vm.provision :shell, :inline => "grep 'source ~/venv/bin/activate' .bashrc || (echo 'source ~/venv/bin/activate' >> .bashrc)"
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.

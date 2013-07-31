@@ -3,27 +3,37 @@ vagrant-i3live
 
 Scientific Linux 6 VM for IceCube Live
 
-* Puppet
-* Python 2.6
-* Virtualenv
-* ZeroMQ (libs + dev package)
-* Git
-* MySQL
+Dependencies:
 
-These are the things I need for various projects; you may wish to edit
-`Vagrantfile` and/or `manifests/scientificlinux-61.pp` to suit.
+1. [Virtualbox](https://www.virtualbox.org/).
+1. [Vagrant](http://vagrantup.com/).
 
 To use:
 
 1. `git clone` or otherwise checkout this repository and `cd` into the resulting directory.
-1. install [Virtualbox](https://www.virtualbox.org/).
-1. install [Vagrant](http://vagrantup.com/).
-1. `vagrant box add scientificlinux-61 http://vagrant.phys.uvic.ca/scientificlinux-61.box`
 1. `vagrant up`  **NOTE:** This will take awhile the first time you run it.
+
+The directory from which you run 'vagrant up' will be shared on the VM
+in `/vagrant`. This means you can edit files on your laptop and they
+will show up in the VM.
 
 To login:
 
 1. `vagrant ssh`.
+
+To finish the I3Live installation, you will need to checkout IceCube
+Live from Git (private GitHub repo, or clone a colleague's repo).
+Then, in the resulting I3Live directory,
+
+    ./setup.py develop
+
+The last step will download needed Python dependencies.
+
+To run all the automated tests,
+
+    livetests
+
+Then do `livecmd launch`, `livecmd check`, etc., as desired.
 
 ### Disclaimer
 
