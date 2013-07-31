@@ -13,17 +13,20 @@ To use:
 1. `git clone` or otherwise checkout this repository and `cd` into the resulting directory.
 1. `vagrant up`  **NOTE:** This will take awhile the first time you run it.
 
-The directory from which you run 'vagrant up' will be shared on the VM
+The directory from which you run `vagrant up` will be shared on the VM
 in `/vagrant`. This means you can edit files on your laptop and they
-will show up in the VM.
+will show up in the VM (and vice-versa).
 
 To login:
 
 1. `vagrant ssh`.
 
 To finish the I3Live installation, you will need to checkout IceCube
-Live from Git (private GitHub repo, or clone a colleague's repo).
-Then, in the resulting I3Live directory,
+Live from Git (private GitHub repo, or clone a colleague's repo). It
+is recommended that you do this **in the shared directory** so you can
+continue to use your favorite editor while writing I3Live code. 
+
+Then, in the resulting I3Live directory **on the VM**,
 
     ./setup.py develop
 
@@ -33,7 +36,18 @@ To run all the automated tests,
 
     livetests
 
-Then do `livecmd launch`, `livecmd check`, etc., as desired.
+Then do `livecmd launch`, `livecmd check`, `livecmd tail`, etc., as desired.
+
+To run `dbserver`,
+
+    dbserver -d
+
+To run the Web site (via test server),
+
+    cd liveview
+    python manage.py syncdb   # once
+    python manage.py migrate  # once
+    DJANGO_DEBUG=on python manage.py runserver 0.0.0.0:8000  # every time
 
 ### Disclaimer
 
