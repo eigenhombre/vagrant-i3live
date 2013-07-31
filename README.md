@@ -3,7 +3,7 @@ vagrant-i3live
 
 Scientific Linux 6 VM for IceCube Live
 
-Dependencies:
+Dependencies you'll need to install:
 
 1. [Virtualbox](https://www.virtualbox.org/).
 1. [Vagrant](http://vagrantup.com/).
