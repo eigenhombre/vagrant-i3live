@@ -21,11 +21,12 @@ To login:
 
 1. `vagrant ssh`.
 
-To finish the I3Live installation, you will need to checkout IceCube
+To finish the I3Live installation, you will need to check out IceCube
 Live from Git (private GitHub repo, or clone a colleague's repo). It
-is recommended that you do this **in the shared directory** 
-(`/vagrant`) so you can
-continue to use your favorite editor while writing I3Live code. 
+is recommended that you do this **in the shared directory**
+(`/vagrant`) so you can continue to use your favorite editor while
+writing I3Live code (files in `/vagrant` on the guest Sci Linux 6
+guest will be the same as those in your original Vagrant directory.
 
 Then, in the resulting I3Live directory **on the VM**,
 
