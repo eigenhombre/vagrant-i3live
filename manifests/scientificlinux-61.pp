@@ -112,8 +112,8 @@ COMMIT
 "
 }
 
-service { 'iptables':
-  enable => true,
-  ensure => running,
-  require => File["/etc/sysconfig/iptables"]
-}
+# service { 'iptables':
+#   enable => false,
+# #  ensure => running,
+#   require => File["/etc/sysconfig/iptables"]
+# }
