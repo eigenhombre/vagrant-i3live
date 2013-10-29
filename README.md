@@ -1,14 +1,16 @@
 vagrant-i3live
 ========================
 
-Scientific Linux 6 VM for IceCube Live
+This project provides a Scientific Linux 6 development
+environment/test VM for IceCube Live, the experiment control and
+monitoring system for IceCube.
 
 Dependencies you'll need to install:
 
 1. [Virtualbox](https://www.virtualbox.org/).
 1. [Vagrant](http://vagrantup.com/).
 
-To use:
+To create the VM:
 
 1. `git clone` or otherwise checkout this repository and `cd` into the resulting directory.
 1. `vagrant up`  **NOTE:** This will take awhile the first time you run it.
@@ -29,8 +31,8 @@ writing I3Live code (files in `/vagrant` on the guest Sci Linux 6
 guest will be the same as those in your original Vagrant directory.
 
 For example, assuming your GitHub username is `githubber`, and you've
-forked `https://github.com:/eigenhombre/IceCube-Live` to that account, as
-well as added your public key to GitHub, then:
+forked `https://github.com:/eigenhombre/IceCube-Live` to that account,
+as well as added your public key to GitHub, then:
 
     vagrant ssh # if you didn't already do it
 

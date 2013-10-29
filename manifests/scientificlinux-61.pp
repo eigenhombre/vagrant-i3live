@@ -94,28 +94,29 @@ mysqldb { "I3OmDb_test":
   password => "",
 }
 
-file { "/etc/sysconfig/iptables":
-  owner => "root",
-  mode => 0600,
-  content => "# Firewall configuration written by vagrant-i3live
-# Manual customization of this file is not recommended.
-*filter
-:INPUT ACCEPT [0:0]
-:FORWARD ACCEPT [0:0]
-:OUTPUT ACCEPT [0:0]
--A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
--A INPUT -p icmp -j ACCEPT
--A INPUT -i lo -j ACCEPT
--A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
--A INPUT -p tcp -m tcp --dport 8000 -j ACCEPT
--A INPUT -j REJECT --reject-with icmp-host-prohibited
--A FORWARD -j REJECT --reject-with icmp-host-prohibited
-COMMIT
-"
-}
-
-# service { 'iptables':
-#   enable => false,
-# #  ensure => running,
-#   require => File["/etc/sysconfig/iptables"]
+# file { "/etc/sysconfig/iptables":
+#   owner => "root",
+#   mode => 0600,
+#   content => "# Firewall configuration written by vagrant-i3live
+# # Manual customization of this file is not recommended.
+# *filter
+# :INPUT ACCEPT [0:0]
+# :FORWARD ACCEPT [0:0]
+# :OUTPUT ACCEPT [0:0]
+# -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+# -A INPUT -p icmp -j ACCEPT
+# -A INPUT -i lo -j ACCEPT
+# -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+# -A INPUT -p tcp -m tcp --dport 8000 -j ACCEPT
+# -A INPUT -j REJECT --reject-with icmp-host-prohibited
+# -A FORWARD -j REJECT --reject-with icmp-host-prohibited
+# COMMIT
+# "
 # }
+
+# We turn off iptables for now; FIXME: use iptable Puppet modules to open Port 8000 only.
+service { 'iptables':
+  ensure => stopped,
+#  enable => false,
+#  require => File["/etc/sysconfig/iptables"]
+}
