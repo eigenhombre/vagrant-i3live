@@ -43,6 +43,18 @@ well as added your public key to GitHub, then:
 
 The last step will download needed Python dependencies.
 
+The before running the database server or webserver (or whenever the
+I3Live view code is updated), you'll want to set up the MySQL DB:
+
+    cd liveview
+    python manage.py syncdb
+
+You will be asked if you want to create a Django superuser, which is
+usually a good idea (it allows you to manually edit records in the
+MySQL tables). Then,
+
+    python manage.py migrate
+
 To run all the automated tests,
 
     livetests
@@ -55,12 +67,11 @@ To run `dbserver`,
 
 To run the Web site (via test server),
 
-    cd liveview
-    python manage.py syncdb   # once
-    python manage.py migrate  # once
-    DJANGO_DEBUG=on python manage.py runserver 0.0.0.0:8000  # every time
+    cd /vagrant/live/liveview
+    DJANGO_DEBUG=on python manage.py runserver 0.0.0.0:8000
 
-The Web site can then be viewed on the host OS (laptop) as [http://localhost:8000](http://localhost:8000).
+The Web site can then be viewed on the host OS (laptop) as
+[http://localhost:8000](http://localhost:8000).
 
 ### Disclaimer
 
