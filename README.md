@@ -60,6 +60,8 @@ To run the Web site (via test server),
     python manage.py migrate  # once
     DJANGO_DEBUG=on python manage.py runserver 0.0.0.0:8000  # every time
 
+The Web site can then be viewed on the host OS (laptop) as [http://localhost:8000](http://localhost:8000).
+
 ### Disclaimer
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
