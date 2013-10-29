@@ -36,6 +36,7 @@ Vagrant::Config.run do |config|
   # Enable shell provisioner to install puppet
   config.vm.provision :shell, :path => "bash/install-puppet.sh"
   config.vm.provision :shell, :path => "bash/install-epel.sh"
+  config.vm.provision :shell, :path => "bash/install-mongo.sh"
   # FIXME: kludge, this should probably be in Puppet:
   config.vm.provision :shell, :inline => "grep 'source ~/venv/bin/activate' .bashrc || (echo 'source ~/venv/bin/activate' >> .bashrc)"
 
@@ -47,7 +48,6 @@ Vagrant::Config.run do |config|
   config.vm.provision :puppet do |puppet|
      puppet.manifests_path = "manifests"
      puppet.manifest_file  = "scientificlinux-61.pp"
-     #puppet.options        = "--verbose --debug"
+     puppet.options        = "--verbose --debug"
   end
-
 end

@@ -19,7 +19,7 @@ will show up in the VM (and vice-versa).
 
 To login:
 
-1. `vagrant ssh`.
+    vagrant ssh
 
 To finish the I3Live installation, you will need to check out IceCube
 Live from Git (private GitHub repo, or clone a colleague's repo). It
@@ -28,8 +28,17 @@ is recommended that you do this **in the shared directory**
 writing I3Live code (files in `/vagrant` on the guest Sci Linux 6
 guest will be the same as those in your original Vagrant directory.
 
-Then, in the resulting I3Live directory **on the VM**,
+For example, assuming your GitHub username is `githubber`, and you've
+forked `https://github.com:/eigenhombre/IceCube-Live` to that account, as
+well as added your public key to GitHub, then:
 
+    vagrant ssh # if you didn't already do it
+
+... in your VM:
+
+    cd /vagrant
+    git clone git@github.com:githubber/IceCube-Live.git live
+    cd live
     ./setup.py develop
 
 The last step will download needed Python dependencies.

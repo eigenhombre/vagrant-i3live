@@ -46,16 +46,18 @@ package { 'libxslt': ensure => installed }
 
 package { 'libxslt-devel': ensure => installed }
 
-package { 'mongodb': ensure => installed }
+# package { 'mongodb': ensure => installed }
+# package { 'mongodb-devel': ensure => installed }
+# package { 'mongodb-server': ensure => installed }
 
-package { 'mongodb-devel': ensure => installed }
+package { 'mongo-10gen': ensure => installed }
+package { 'mongo-10gen-server': ensure => installed }
 
-package { 'mongodb-server': ensure => installed }
 
 service { 'mongod':
   enable => true,
   ensure => running,
-  require => Package["mongodb-server"]
+  require => Package["mongo-10gen-server"]
 }
 
 
