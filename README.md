@@ -55,6 +55,14 @@ In the same directory, install the code into the local virtualenv:
 
 The last step will download needed Python dependencies.
 
+*NOTE*: At the moment, the `python-twitter` module must be installed
+ manually as well:
+
+    pip install python-twitter
+
+This is due to a conflict with I3Live's Fabric / Kickstart
+installation which is under investigation.
+
 The before running the database server or webserver (or whenever the
 I3Live view code is updated), you'll want to set up the MySQL DB:
 
