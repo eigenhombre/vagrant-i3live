@@ -36,11 +36,21 @@ as well as added your public key to GitHub, then:
 
     vagrant ssh # if you didn't already do it
 
-... in your VM:
+... in your VM, `git clone` your fork of I3Live...
 
     cd /vagrant
     git clone git@github.com:githubber/IceCube-Live.git live
+
+... and make sure it's up to date with the latest production master:
+
     cd live
+    # Do once:
+    git remote add upstream git@github.com:eigenhombre/IceCube-Live.git
+    # Do occasionally:
+    git fetch upstream; git merge upstream/master
+
+In the same directory, install the code into the local virtualenv:
+
     ./setup.py develop
 
 The last step will download needed Python dependencies.
