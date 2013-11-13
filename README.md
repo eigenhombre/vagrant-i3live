@@ -36,7 +36,10 @@ as well as added your public key to GitHub, then:
 
     vagrant ssh # if you didn't already do it
 
-... in your VM, `git clone` *your* fork of I3Live.  Note that you should not clone the `eigenhombre` for: you want to be able to push any local changes you make on the VM up to your fork and issue pull requests from there:
+... in your VM, `git clone` *your* fork of I3Live. Note that you
+should not clone the `eigenhombre` fork: you want to be able to push
+any local changes you make on the VM up to your fork and issue pull
+requests from there:
 
     cd /vagrant
     # change githubber to your username:
