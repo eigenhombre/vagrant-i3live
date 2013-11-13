@@ -36,10 +36,11 @@ as well as added your public key to GitHub, then:
 
     vagrant ssh # if you didn't already do it
 
-... in your VM, `git clone` your fork of I3Live...
+... in your VM, `git clone` *your* fork of I3Live.  Note that you should not clone the `eigenhombre` for: you want to be able to push any local changes you make on the VM up to your fork and issue pull requests from there:
 
     cd /vagrant
-    git clone git@github.com:githubber/IceCube-Live.git live
+    # change githubber to your username:
+    git clone git@github.com:githubber/IceCube-Live.git live  
 
 ... and make sure it's up to date with the latest production master:
 
@@ -54,6 +55,14 @@ In the same directory, install the code into the local virtualenv:
     ./setup.py develop
 
 The last step will download needed Python dependencies.
+
+*NOTE*: if you see a stacktrace ending in
+
+     TypeError: 'NoneType' object is not callable
+
+it should still work fine (it seems to be a result of a slightly flaky
+dependency installation process); if in doubt, run `./setup.py
+develop` again.
 
 *NOTE*: At the moment, the `python-twitter` module must be installed
  manually as well:
