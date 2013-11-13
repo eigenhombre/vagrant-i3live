@@ -10,9 +10,11 @@ Dependencies you'll need to install:
 1. [Virtualbox](https://www.virtualbox.org/).
 1. [Vagrant](http://vagrantup.com/).
 
-To create the VM:
+To create the VM (replace `some_directory` by any name to your convenience):
 
-1. `git clone` or otherwise checkout this repository and `cd` into the resulting directory.
+1. `mkdir some_directory`
+1. `git clone https://github.com/eigenhombre/vagrant-i3live.git some_directory` or otherwise checkout this repository
+1. `cd` into the resulting directory
 1. `vagrant up`  **NOTE:** This will take awhile the first time you run it.
 
 The directory from which you run `vagrant up` will be shared on the VM
