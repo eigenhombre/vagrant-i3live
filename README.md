@@ -13,17 +13,17 @@ Dependencies you'll need to install:
 To create the VM (replace `some_directory` by any name to your convenience):
 
 1. `mkdir some_directory`
-1. `git clone https://github.com/eigenhombre/vagrant-i3live.git some_directory` or otherwise checkout this repository
-1. `cd` into the resulting directory
+1. `git clone https://github.com/eigenhombre/vagrant-i3live.git vagrant-i3live`
+1. `cd vagrant-i3live`
 1. `vagrant up`  **NOTE:** This will take awhile the first time you run it.
 
 The directory from which you run `vagrant up` will be shared on the VM
 in `/vagrant`. This means you can edit files on your laptop and they
 will show up in the VM (and vice-versa).
 
-You should be sure you've added your public key to GitHub. You also
-will want to set `ForwardAgent yes` in your ssh config file (or else
-you will have to make and upload a public key on the VM).
+You should be sure you've added your laptop's public key to GitHub.
+You also will want to set `ForwardAgent yes` in your ssh config file
+(or else you will have to make and upload a public key on the VM).
 
 To login:
 
