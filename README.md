@@ -19,6 +19,10 @@ The directory from which you run `vagrant up` will be shared on the VM
 in `/vagrant`. This means you can edit files on your laptop and they
 will show up in the VM (and vice-versa).
 
+You should be sure you've added your public key to GitHub. You also
+will want to set `ForwardAgent yes` in your ssh config file (or else
+you will have to make and upload a public key on the VM).
+
 To login:
 
     vagrant ssh
@@ -30,9 +34,8 @@ is recommended that you do this **in the shared directory**
 writing I3Live code (files in `/vagrant` on the guest Sci Linux 6
 guest will be the same as those in your original Vagrant directory.
 
-For example, assuming your GitHub username is `githubber`, and you've
-forked `https://github.com:/eigenhombre/IceCube-Live` to that account,
-as well as added your public key to GitHub, then:
+Assuming your GitHub username is `githubber`, and you've
+forked `https://github.com:/eigenhombre/IceCube-Live` to that account, then:
 
     vagrant ssh # if you didn't already do it
 
