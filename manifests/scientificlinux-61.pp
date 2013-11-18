@@ -5,31 +5,18 @@ File { owner => 0, group => 0, mode => 0644 }
 file { '/etc/motd': content => "Vagrant SL6.1 dev box for IceCube Live\n" }
 
 package { 'wget': ensure => installed }
-
 package { 'man': ensure => installed }
-
-package { 'python-virtualenv': ensure => installed }
-
-package { 'python-devel': ensure => installed }
-
 package { 'zeromq': ensure => installed }
-
 package { 'zeromq-devel': ensure => installed }
-
 package { 'gcc': ensure => installed }
-
 package { 'gcc-c++': ensure => installed }
-
 package { 'git': ensure => installed }
-
 package { 'diffutils': ensure => installed }
-
+package { 'blas-devel': ensure => installed }
+package { 'lapack-devel': ensure => installed }
 package { 'mysql': ensure => installed }
-
 #package { 'MySQL-python': ensure => installed }
-
 package { 'mysql-server': ensure => installed }
-
 package { 'mysql-devel': ensure => installed }
 
 service { 'mysqld':
@@ -39,11 +26,8 @@ service { 'mysqld':
 }
 
 package { 'libxml2': ensure => installed }
-
 package { 'libxml2-devel': ensure => installed }
-
 package { 'libxslt': ensure => installed }
-
 package { 'libxslt-devel': ensure => installed }
 
 # package { 'mongodb': ensure => installed }
@@ -69,6 +53,7 @@ exec { "python/virtualenv":
   creates => ["/home/vagrant/venv"],
   user => "vagrant",
 }
+
 
 # From http://bitfieldconsulting.com/puppet-and-mysql-create-databases-and-users:
 define mysqldb( $user, $password ) {
@@ -120,3 +105,41 @@ service { 'iptables':
 #  enable => false,
 #  require => File["/etc/sysconfig/iptables"]
 }
+
+import 'python'
+
+class { 'python':
+  version    => 'system',
+  dev        => true,
+  virtualenv => true,
+}
+
+python::virtualenv { '/home/vagrant/venv':
+  ensure       => present,
+  version      => 'system',
+  systempkgs   => true,
+  distribute   => false,
+  owner        => 'vagrant',
+  group        => 'admin',
+  cwd          => '/tmp',
+}
+
+python::pip { 'Django==1.4': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'MySQL-python': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'South': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'argparse': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'colorama': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'fabric': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'lxml': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'nose': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'numpy': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'ordereddict': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'pep8==0.6.1': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'pycrypto': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'pymongo': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'python-twitter': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'pyzmq==2.2.0.1': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+#python::pip { 'scipy': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'simplejson': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'textile': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'toolz': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }

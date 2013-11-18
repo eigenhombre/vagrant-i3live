@@ -47,7 +47,8 @@ Vagrant::Config.run do |config|
   #
   config.vm.provision :puppet do |puppet|
      puppet.manifests_path = "manifests"
-     puppet.manifest_file  = "scientificlinux-61.pp"
-     puppet.options        = "--verbose --debug"
+     puppet.module_path = "modules"
+     puppet.manifest_file = "scientificlinux-61.pp"
+     puppet.options = "--verbose --debug"
   end
 end
