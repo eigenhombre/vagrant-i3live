@@ -15,6 +15,8 @@ To create the VM:
 1. `mkdir some_directory`
 1. `git clone https://github.com/eigenhombre/vagrant-i3live.git vagrant-i3live`
 1. `cd vagrant-i3live`
+1. `git submodule init`
+1. `git submodule update`
 1. `vagrant up`  **NOTE:** This will take awhile the first time you run it.
 
 The directory from which you run `vagrant up` will be shared on the VM
