@@ -41,7 +41,12 @@ forked `https://github.com:/eigenhombre/IceCube-Live` to that account, then:
 
     vagrant ssh # if you didn't already do it
 
-... in your VM, `git clone` *your* fork of I3Live. Note that you
+You're now logged in.  Set up your identity for `git`, e.g.:
+
+    git config --global user.name "Ada Lovelace”
+    git config --global user.email "ada@npxdesigns.com”
+
+Also in your VM, `git clone` *your* fork of I3Live. Note that you
 should not clone the `eigenhombre` fork: you want to be able to push
 any local changes you make on the VM up to your fork and issue pull
 requests from there:
