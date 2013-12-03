@@ -135,6 +135,7 @@ python::pip { 'nose': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
 python::pip { 'numpy': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
 python::pip { 'ordereddict': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
 python::pip { 'pep8==0.6.1': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'pyephem': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
 python::pip { 'pycrypto': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
 python::pip { 'pymongo': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
 python::pip { 'python-twitter': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
