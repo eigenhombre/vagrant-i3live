@@ -142,5 +142,6 @@ python::pip { 'python-twitter': virtualenv => '/home/vagrant/venv', owner => 'va
 python::pip { 'pyzmq==2.2.0.1': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
 #python::pip { 'scipy': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
 python::pip { 'simplejson': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
+python::pip { 'conttest': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
 python::pip { 'textile': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
 python::pip { 'toolz': virtualenv => '/home/vagrant/venv', owner => 'vagrant' }
